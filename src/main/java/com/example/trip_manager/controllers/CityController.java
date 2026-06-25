@@ -14,26 +14,26 @@ import java.util.List;
 @RequestMapping("/cities")
 public class CityController {
 
-    private final CityService cityService;
+    private final CityService cityservice;
 
     public CityController(CityService cityService) {
-        this.cityService = cityService;
+        this.cityservice = cityService;
     }
 
     @GetMapping
     public List<City> getAllCities() {
-        return cityService.getAllCities();
+        return cityservice.getAllCities();
     }
 
     @GetMapping("/{id}")
     public City getCityById(@PathVariable Long id) {
-        return cityService.getCityById(id);
+        return cityservice.getCityById(id);
     }
 
     @PostMapping
     public ResponseEntity<City> addCity(@RequestBody City city) {
 
-        City savedCity = cityService.addCity(city);
+        City savedCity = cityservice.addCity(city);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -46,12 +46,12 @@ public class CityController {
 
     @PutMapping("/{id}")
     public City updateCity(@PathVariable Long id, @RequestBody City city) {
-        return cityService.updateCity(id, city);
+        return cityservice.updateCity(id, city);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCity(@PathVariable Long id) {
-        cityService.deleteCity(id);
+        cityservice.deleteCity(id);
         return ResponseEntity.noContent().build();
     }
 }

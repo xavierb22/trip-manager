@@ -13,9 +13,9 @@ import java.util.List;
 public class TripService {
    private final TripRepository tripRepository;
 
-   public   TripService(TripRepository tripRepository) {this.tripRepository = tripRepository;}
+   public TripService(TripRepository tripRepository) {this.tripRepository = tripRepository;}
 
-    public List<Trip> findAll() {return tripRepository.findAll();}
+    public List<Trip> getAllTrips() {return tripRepository.findAll();}
 
     public Trip getTripById(Long id){
         return tripRepository.findById(id)
