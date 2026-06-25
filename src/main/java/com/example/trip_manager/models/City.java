@@ -20,7 +20,7 @@ public class City {
     }
 
     public void setId(Long city_id) {
-        this.id = id;
+        this.id = city_id;
     }
 
     public String getName() {
